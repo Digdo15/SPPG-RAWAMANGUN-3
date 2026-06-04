@@ -41,66 +41,70 @@ body {
 }
 
 /* ==========================================================================
-   2. GLOBAL LAYOUT & SECTION DIVIDERS (Solusi Utama Pembagian Section)
+   2. GLOBAL LAYOUT & FLUID SECTION SYSTEM (Solusi Fleksibel Desktop & Laptop)
    ========================================================================== */
 section {
-    padding: 100px 20px; /* Jarak atas bawah diperlebar agar tidak menumpuk */
+    /* DEFAULT UNTUK MONITOR BESAR DESKTOP */
+    padding: 140px 5%; /* Menggunakan 5% agar jarak kanan-kiri elastis mengikuti layar */
     max-width: 100%;
     position: relative;
+    width: 100%;
+    border-bottom: 1px solid #e2e8f0; 
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.05); 
 }
 
-/* Pembungkus konten di dalam section agar rapi di tengah */
-.container {
+/* Membatasi lebar konten utama di tengah */
+.section-title,
+.about-grid, 
+.volunteers-grid, 
+#tampil-menu {
     max-width: 1200px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
-/* Teknik Pewarnaan Selang-seling (Alternating Backgrounds) */
+/* Pengaturan Kontras Warna Background Antar-Section */
 section#profil {
     background-color: var(--bg-white);
 }
 
 section#jadwal {
-    background-color: var(--bg-light-gray); /* Berubah abu-abu terang */
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    background-color: var(--bg-light-gray); 
 }
 
 .bg-gray-section {
-    background-color: var(--bg-light-mint); /* Berubah hijau mint sangat lembut */
-    border-bottom: 1px solid #e2e8f0;
+    background-color: var(--bg-light-mint); 
 }
 
-/* Desain Komponen Judul Section yang Tegas */
+/* Desain Blok Judul Section */
 .section-title {
     text-align: center;
-    margin-bottom: 60px;
-    position: relative;
+    margin-bottom: 70px; 
 }
 
 .section-title h2 {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     color: var(--text-dark);
     font-weight: 800;
     margin-bottom: 15px;
     letter-spacing: -0.5px;
 }
 
-/* Dekorasi Garis di Bawah Judul (Visual Anchor) */
 .section-title h2::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
+    width: 70px;
+    height: 5px;
     background-color: var(--primary);
-    margin: 12px auto 0;
-    border-radius: 2px;
+    margin: 15px auto 0;
+    border-radius: 3px;
 }
 
 .section-title p {
     color: var(--text-light);
-    font-size: 1.1rem;
-    max-width: 650px;
+    font-size: 1.15rem;
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -117,7 +121,6 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-    transition: var(--transition);
 }
 
 .nav-container {
@@ -214,15 +217,17 @@ header {
 .hero {
     background: linear-gradient(135deg, rgba(4, 120, 87, 0.92) 0%, rgba(29, 78, 216, 0.85) 100%), 
                 url('https://lh3.googleusercontent.com/d/1YIogI-VJGgH6Qc8Tfc365z298_7jdIUX') center/cover no-repeat;
-    height: 90vh;
-    min-height: 550px;
+    height: 80vh;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--white);
+    color: #ffffff;
     padding: 0 20px;
-    margin-top: 72px; /* Mencegah konten tertutup navbar */
+    margin-top: 72px;
+    border-bottom: none;
+    box-shadow: none;
 }
 
 .hero-content {
@@ -244,7 +249,6 @@ header {
     margin-bottom: 35px;
     opacity: 0.95;
     line-height: 1.6;
-    font-weight: 400;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -275,7 +279,7 @@ header {
 .about-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 50px;
+    gap: 60px;
     align-items: start;
 }
 
@@ -293,16 +297,13 @@ header {
     font-size: 1.05rem;
 }
 
-/* Modifikasi Box Visi Misi agar Berbentuk Kotak Kartu Terpisah */
 .vision-mission {
     background-color: #ffffff;
     padding: 35px;
     border-radius: var(--border-radius);
     border-left: 6px solid var(--primary);
     box-shadow: var(--shadow-lg);
-    border-top: 1px solid #f1f5f9;
-    border-right: 1px solid #f1f5f9;
-    border-bottom: 1px solid #f1f5f9;
+    border: 1px solid #f1f5f9;
 }
 
 .vm-title {
@@ -332,21 +333,16 @@ header {
    6. JADWAL MENU SECTION (STYLING KALENDER TANGGAL)
    ========================================================================== */
 .menu-filter-wrapper {
-    margin-bottom: 35px;
+    margin: 0 auto 40px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 14px;
     flex-wrap: wrap;
     background: #ffffff;
-    padding: 16px 24px;
+    padding: 14px 28px;
     border-radius: 50px;
-    display: inline-flex;
-    margin-left: auto;
-    margin-right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    position: relative;
+    max-width: max-content; 
     box-shadow: var(--shadow-sm);
     border: 1px solid #e2e8f0;
 }
@@ -358,10 +354,10 @@ header {
 }
 
 #input-tanggal-menu {
-    padding: 10px 18px;
+    padding: 8px 16px;
     border: 2px solid #cbd5e1;
     border-radius: 30px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-dark);
     background-color: #ffffff;
     outline: none;
@@ -373,11 +369,6 @@ header {
 #input-tanggal-menu:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
-}
-
-#tampil-menu {
-    margin-top: 20px;
-    transition: var(--transition);
 }
 
 /* ==========================================================================
@@ -417,11 +408,10 @@ header {
 
 .volunteers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 35px;
 }
 
-/* Modifikasi Kartu Relawan Lebih Presisi Berjarak */
 .volunteer-card {
     background-color: var(--bg-white);
     border-radius: var(--border-radius);
@@ -480,33 +470,31 @@ header {
    8. FOOTER SYSTEM (DARK ELEGANT CLOSING)
    ========================================================================== */
 footer {
-    background-color: #0f172a; /* Warna Hitam Pekat */
+    background-color: #0f172a; 
     color: #ffffff;
     text-align: center;
-    padding: 50px 20px 30px;
-    border-top: 4px solid var(--primary);
+    padding: 60px 20px 40px;
+    border-top: 5px solid var(--primary);
 }
 
 footer h2 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 800;
     margin-bottom: 12px;
     color: #ffffff;
-    letter-spacing: 0.5px;
 }
 
 .footer-subtitle {
     color: #94a3b8;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
     font-size: 1rem;
-    line-height: 1.6;
 }
 
 .footer-copyright {
     font-size: 0.85rem;
     color: #64748b;
     border-top: 1px solid #334155;
-    padding-top: 20px;
+    padding-top: 25px;
     display: block;
     width: 100%;
     max-width: 1200px;
@@ -514,43 +502,64 @@ footer h2 {
 }
 
 /* ==========================================================================
-   9. SYSTEM ANIMATIONS & RESPONSIVE DESIGN
+   9. SYSTEM ANIMATIONS & RESPONSIVE DESIGN (BREAKPOINTS)
    ========================================================================== */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Media Queries untuk Mobile & Tablet */
-@media (max-width: 992px) {
-    .about-grid {
-        grid-template-columns: 1fr; /* Grid profil jadi 1 kolom */
-        gap: 40px;
+/* 💻 BREAKPOINT BARU: KHUSUS LAYAR LAPTOP & NOTEBOOK (1024px s/d 1440px) */
+@media (max-width: 1440px) {
+    section {
+        /* Padding atas-bawah diturunkan ke 95px agar tidak makan layar laptop, 
+           jarak samping dinaikkan ke 6% agar teks tidak nempel ke bezel */
+        padding: 95px 6%; 
     }
-    
+    .section-title {
+        margin-bottom: 45px; /* Jarak judul ke konten dikurangi sedikit */
+    }
+    .section-title h2 {
+        font-size: 2.2rem; /* Ukuran teks judul mengecil agar pas di laptop */
+    }
+    .hero h1 {
+        font-size: 3rem; /* Judul banner utama disesuaikan */
+    }
+    .about-grid {
+        gap: 40px; /* Jarak antar kolom grid dipersempit */
+    }
+}
+
+/* 📜 BREAKPOINT: TABLET & LAPTOP KECIL */
+@media (max-width: 992px) {
+    section {
+        padding: 80px 5%;
+    }
+    .about-grid {
+        grid-template-columns: 1fr; /* Grid profil berubah jadi 1 kolom ke bawah */
+        gap: 35px;
+    }
     .hero h1 {
         font-size: 2.6rem;
     }
 }
 
+/* 📱 BREAKPOINT: HANDPHONE / MOBILE SCREEN */
 @media (max-width: 768px) {
     section {
-        padding: 70px 20px; /* Diperkecil sedikit di HP agar hemat layar */
+        padding: 60px 20px; /* Kembali padat dan rapi khusus layar sentuh HP */
     }
-    
     .nav-links {
-        display: none; /* Menyembunyikan menu desktop pada mobile */
+        display: none; /* Menyembunyikan menu link untuk diganti hamburger (jika ada) */
     }
-    
     .hero h1 {
-        font-size: 2.1rem;
+        font-size: 2rem;
     }
-    
-    .hero p {
-        font-size: 1.1rem;
-    }
-    
     .section-title h2 {
-        font-size: 1.9rem;
+        font-size: 1.75rem;
+    }
+    .hero {
+        height: auto;
+        padding: 100px 20px;
     }
 }
