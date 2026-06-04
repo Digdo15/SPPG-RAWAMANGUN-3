@@ -20,7 +20,7 @@ const REKOR_DATA_MENU = [
         tanggal: "2026-06-04", // Menu Hari Ini (1)
         nama: "Bubur Manado Sehat",
         deskripsi: "Bubur jagung dan labu kuning kaya serat, disajikan dengan suwiran ayam, kangkung segar, dan tahu rebus.",
-        foto: "https://drive.google.com/uc?export=view&id=10gBYPn_VnTzahaNj7jnKkyR1c14qMH8T",
+        foto: "https://www.google.com/imgres?q=MAKANAN%20Bubur%20Manado%20Sehat%20DI%20OMPRENG&imgurl=https%3A%2F%2Fwww.finnafood.com%2Fblog%2Fwp-content%2Fuploads%2F2023%2F07%2F17.-Bubur-Manado-Kerupuk-Udang-Menu-Nikmat-Bergizi.jpg&imgrefurl=https%3A%2F%2Fwww.finnafood.com%2Fblog%2Fbubur-manado-kerupuk-udang-menu-nikmat-bergizi%2F&docid=qx2Xxrc-JYWvYM&tbnid=OWrjI5AdAnNJJM&vet=12ahUKEwijjPG7--2UAxUT1TgGHe2XMWsQnPAOegQIHBAB..i&w=617&h=463&hcb=2&ved=2ahUKEwijjPG7--2UAxUT1TgGHe2XMWsQnPAOegQIHBAB",
         kalori: "350 Kcal", protein: "15g", karbohidrat: "45g", lemak: "5g"
     },
     {
