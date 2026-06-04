@@ -77,86 +77,89 @@
             <!-- Filter Buttons -->
             <div class="filter-container">
                 <button class="filter-btn active" onclick="filterRelawan('all', this)">Semua Relawan</button>
-                <button class="filter-btn" onclick="filterRelawan('kepala dapur', this)">Kepala Dapur</button>
-                <button class="filter-btn" onclick="filterRelawan('gizi', this)">Ahli Gizi</button>
+                <button class="filter-btn" onclick="filterRelawan('Kepala Dapur', this)">Kepala Dapur</button>
+                <button class="filter-btn" onclick="filterRelawan('Gizi', this)">Ahli Gizi</button>
                 <button class="filter-btn" onclick="filterRelawan('Akuntan', this)">Akuntansi</button>
                 <button class="filter-btn" onclick="filterRelawan('Aslap', this)">Asisten Lapangan</button>
-                <button class="filter-btn" onclick="filterRelawan('persiapan', this)">Tim persiapan</button>
-                <button class="filter-btn" onclick="filterRelawan('dapur', this)">Tim Dapur</button>
+                <button class="filter-btn" onclick="filterRelawan('Bahan Baku', this)">Tim Bahan Baku</button>
+                <button class="filter-btn" onclick="filterRelawan('Persiapan', this)">Tim persiapan</button>
+                <button class="filter-btn" onclick="filterRelawan('Pengolahan', this)">Tim Pengolahan</button>
                 <button class="filter-btn" onclick="filterRelawan('pemorsian', this)">Tim pemorsian</button>
                 <button class="filter-btn" onclick="filterRelawan('distribusi', this)">Tim Distribusi</button>
                 <button class="filter-btn" onclick="filterRelawan('cuci ompreng', this)">Tim cuci ompreng</button>
+                <button class="filter-btn" onclick="filterRelawan('Perlengkapan', this)">Tim Perlengkapan</button>
+                <button class="filter-btn" onclick="filterRelawan('Kebersihan', this)">Tim Kebersihan</button>
             </div>
 
             <!-- Volunteer Cards -->
             <div class="volunteers-grid" id="volunteer-list">
                 <!-- Relawan 1 -->
-                <div class="volunteer-card" data-category="gizi">
+                <div class="volunteer-card" data-category="Kepala Dapur">
                     <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Dr. Amanda" class="volunteer-img">
                     <div class="volunteer-info">
-                        <h4 class="volunteer-name">Dr. Amanda Lestari</h4>
+                        <h4 class="volunteer-name">Bapak Fadil</h4>
                         <span class="volunteer-role">Kepala Dapur</span>
-                        <p class="volunteer-desc">Bertanggung jawab merancang menu harian yang memenuhi standar kalori, protein, dan vitamin untuk mencegah stunting pada balita.</p>
-                    </div>
-                </div>
-
-                <!-- Relawan 2 -->
-                <div class="volunteer-card" data-category="dapur">
-                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Chef Bima" class="volunteer-img">
-                    <div class="volunteer-info">
-                        <h4 class="volunteer-name">Bima Saputra</h4>
-                        <span class="volunteer-role">Ahli Gizi</span>
                         <p class="volunteer-desc">Memimpin operasional dapur SPPG. Memastikan proses memasak higienis, efisien, dan kualitas rasa tetap terjaga.</p>
                     </div>
                 </div>
 
+                <!-- Relawan 2 -->
+                <div class="volunteer-card" data-category="Gizi">
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Chef Bima" class="volunteer-img">
+                    <div class="volunteer-info">
+                        <h4 class="volunteer-name">-</h4>
+                        <span class="volunteer-role">Ahli Gizi</span>
+                        <p class="volunteer-desc">Bertanggung jawab merancang menu harian yang memenuhi standar kalori, protein, dan vitamin untuk mencegah stunting pada balita.</p>
+                    </div>
+                </div>
+
                 <!-- Relawan 3 -->
-                <div class="volunteer-card" data-category="distribusi">
+                <div class="volunteer-card" data-category="Akuntan">
                     <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Rizky" class="volunteer-img">
                     <div class="volunteer-info">
-                        <h4 class="volunteer-name">Rizky Pratama</h4>
+                        <h4 class="volunteer-name">Bapak Sujud</h4>
                         <span class="volunteer-role">Akuntan Dapur</span>
-                        <p class="volunteer-desc">Memetakan wilayah dengan kerawanan gizi tinggi dan mengatur alur distribusi makanan matang agar sampai tepat waktu.</p>
+                        <p class="volunteer-desc">Melaksanakan pengelolaan administrasi dan pencatatan keuangan dapur secara akurat, transparan, dan akuntabel guna mendukung kelancaran operasional serta memastikan penggunaan anggaran sesuai ketentuan yang berlaku.</p>
                     </div>
                 </div>
 
                  <!-- Relawan 4 -->
-                <div class="volunteer-card" data-category="distribusi">
+                <div class="volunteer-card" data-category="Aslap">
                     <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Rizky" class="volunteer-img">
                     <div class="volunteer-info">
-                        <h4 class="volunteer-name">Rizky Pratama</h4>
+                        <h4 class="volunteer-name">Reza Ardiansyah</h4>
                         <span class="volunteer-role">Asisten Lapangan</span>
-                        <p class="volunteer-desc">Memetakan wilayah dengan kerawanan gizi tinggi dan mengatur alur distribusi makanan matang agar sampai tepat waktu.</p>
+                        <p class="volunteer-desc">Membantu pelaksanaan dan pengawasan kegiatan operasional lapangan agar proses produksi, distribusi, dan pelayanan makanan berjalan lancar, tepat waktu, serta sesuai standar mutu, kebersihan, dan keamanan pangan.</p>
                     </div>
                 </div>
 
                  <!-- Relawan 5 -->
-                <div class="volunteer-card" data-category="distribusi">
+                <div class="volunteer-card" data-category="Bahan Baku">
                     <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Rizky" class="volunteer-img">
                     <div class="volunteer-info">
-                        <h4 class="volunteer-name">Rizky Pratama</h4>
-                        <span class="volunteer-role">Koordinator Bahan Baku</span>
-                        <p class="volunteer-desc">Memetakan wilayah dengan kerawanan gizi tinggi dan mengatur alur distribusi makanan matang agar sampai tepat waktu.</p>
+                        <h4 class="volunteer-name">Digdo Bayu Riky Subagja</h4>
+                        <span class="volunteer-role">Koordinator Bahan Baku dan Persiapan</span>
+                        <p class="volunteer-desc">Mengkoordinasikan pengelolaan bahan baku dan proses persiapan produksi untuk memastikan ketersediaan bahan pangan yang berkualitas, aman, dan siap digunakan sesuai kebutuhan operasional dapur.</p>
                     </div>
                 </div>
 
                 <!-- Relawan 6 -->
-                <div class="volunteer-card" data-category="distribusi">
+                <div class="volunteer-card" data-category="Perlengkapan">
                     <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Rizky" class="volunteer-img">
                     <div class="volunteer-info">
-                        <h4 class="volunteer-name">Rizky Pratama</h4>
-                        <span class="volunteer-role">Koordinator Bahan Baku</span>
-                        <p class="volunteer-desc">Memetakan wilayah dengan kerawanan gizi tinggi dan mengatur alur distribusi makanan matang agar sampai tepat waktu.</p>
+                        <h4 class="volunteer-name">Muhammad Rezka Adhe Ramdhani</h4>
+                        <span class="volunteer-role">Koordinator Pencucian dan Perlengkapan Dapur</span>
+                        <p class="volunteer-desc">Mengkoordinasikan kegiatan pencucian, sanitasi, penyimpanan, dan pemeliharaan perlengkapan dapur untuk memastikan seluruh peralatan dalam kondisi bersih, higienis, layak pakai, dan siap mendukung kelancaran operasional dapur.</p>
                     </div>
                 </div>
 
                 <!-- Relawan 7 -->
-                <div class="volunteer-card" data-category="distribusi">
+                <div class="volunteer-card" data-category="pemorsian">
                     <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Rizky" class="volunteer-img">
                     <div class="volunteer-info">
-                        <h4 class="volunteer-name">Rizky Pratama</h4>
-                        <span class="volunteer-role">Koordinator Bahan Baku</span>
-                        <p class="volunteer-desc">Memetakan wilayah dengan kerawanan gizi tinggi dan mengatur alur distribusi makanan matang agar sampai tepat waktu.</p>
+                        <h4 class="volunteer-name">Ega Atha Naufal</h4>
+                        <span class="volunteer-role">Koordinator Pemorsian</span>
+                        <p class="volunteer-desc">Mengkoordinasikan proses pemorsian makanan agar setiap paket makanan disajikan sesuai standar menu, nilai gizi, jumlah porsi, dan target distribusi yang telah ditetapkan.</p>
                     </div>
                 </div>
 
@@ -164,9 +167,9 @@
                 <div class="volunteer-card" data-category="distribusi">
                     <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Rizky" class="volunteer-img">
                     <div class="volunteer-info">
-                        <h4 class="volunteer-name">Rizky Pratama</h4>
-                        <span class="volunteer-role">Koordinator Bahan Baku</span>
-                        <p class="volunteer-desc">Memetakan wilayah dengan kerawanan gizi tinggi dan mengatur alur distribusi makanan matang agar sampai tepat waktu.</p>
+                        <h4 class="volunteer-name">Muhammad Zaidaan Akmal</h4>
+                        <span class="volunteer-role">Koordinator Distribusi dan admin </span>
+                        <p class="volunteer-desc">Mengkoordinasikan kegiatan distribusi makanan dan administrasi operasional untuk memastikan makanan tersalurkan tepat waktu, tepat jumlah, tepat sasaran, serta seluruh dokumen dan laporan operasional tersusun dengan baik dan akurat.</p>
                     </div>
                 </div>
 
