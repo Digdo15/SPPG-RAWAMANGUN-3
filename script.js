@@ -1,91 +1,136 @@
 // =========================================================================
-// 1. DATA MANAJEMEN MENU HARIAN (Edit bagian ini saja setiap hari)
+// 1. RECORD DATA MENU BULANAN (Tumpuk terus ke bawah setiap hari)
 // =========================================================================
-const DATA_MENU_HARI_INI = [
+const REKOR_DATA_MENU = [
     {
-        waktu: "Pagi", 
+        tanggal: "2026-06-02", // Menu yang sudah lewat (Arsip)
+        nama: "Nasi Tim Ayam Kampung",
+        deskripsi: "Nasi tim lembut dengan potongan ayam kampung, kuah kaldu sayuran kaya vitamin, dan buah pisang.",
+        foto: "https://drive.google.com/uc?export=view&id=10gBYPn_VnTzahaNj7jnKkyR1c14qMH8T",
+        kalori: "410 Kcal", protein: "18g", karbohidrat: "50g", lemak: "6g"
+    },
+    {
+        tanggal: "2026-06-03", // Menu kemarin (Arsip)
+        nama: "Kentang Tumbuk & Salmon Panggang",
+        deskripsi: "Mashed potato tanpa mentega berlebih, disajikan bersama salmon panggang kaya Omega-3 dan brokoli kukus.",
+        foto: "https://drive.google.com/uc?export=view&id=10gBYPn_VnTzahaNj7jnKkyR1c14qMH8T",
+        kalori: "480 Kcal", protein: "28g", karbohidrat: "42g", lemak: "12g"
+    },
+    {
+        tanggal: "2026-06-04", // MENU HARI INI (Menu 1)
         nama: "Bubur Manado Sehat",
         deskripsi: "Bubur jagung dan labu kuning kaya serat, disajikan dengan suwiran ayam, kangkung segar, dan tahu rebus.",
         foto: "https://drive.google.com/uc?export=view&id=10gBYPn_VnTzahaNj7jnKkyR1c14qMH8T",
         kalori: "350 Kcal", protein: "15g", karbohidrat: "45g", lemak: "5g"
     },
     {
-        waktu: "Siang",
-        nama: "Nasi Merah & Pepes Ikan",
-        deskripsi: "Nasi merah, pepes ikan kembung tinggi Omega-3, tumis buncis wortel, dan sepotong buah pepaya segar.",
-        foto: "https://drive.google.com/uc?export=view&id=10gBYPn_VnTzahaNj7jnKkyR1c14qMH8T", 
+        tanggal: "2026-06-04", // MENU HARI INI (Menu 2 - Otomatis berdampingan)
+        nama: "Nasi Merah & Pepes Ikan Kembung",
+        deskripsi: "Nasi merah tinggi serat, pepes ikan kembung, tumis buncis wortel, dan sepotong buah pepaya segar.",
+        foto: "https://drive.google.com/uc?export=view&id=10gBYPn_VnTzahaNj7jnKkyR1c14qMH8T",
         kalori: "520 Kcal", protein: "25g", karbohidrat: "60g", lemak: "10g"
     },
     {
-        waktu: "Malam",
-        nama: "Sup Bening Ayam Kampung",
-        deskripsi: "Sup bening dengan potongan wortel, kentang, dada ayam, dilengkapi tempe panggang tanpa minyak.",
-        foto: "https://drive.google.com/uc?export=view&id=10gBYPn_VnTzahaNj7jnKkyR1c14qMH8T", 
-        kalori: "400 Kcal", protein: "20g", karbohidrat: "40g", lemak: "6g"
+        tanggal: "2026-06-05", // Menu untuk besok (Akan tersimpan & baru muncul besok)
+        nama: "Sup Makaroni Bola Daging",
+        deskripsi: "Sup bening makaroni dengan bola-bola daging sapi murni rendah lemak, wortel, dan seledri segar.",
+        foto: "https://drive.google.com/uc?export=view&id=10gBYPn_VnTzahaNj7jnKkyR1c14qMH8T",
+        kalori: "430 Kcal", protein: "22g", karbohidrat: "48g", lemak: "7g"
     }
 ];
 
 // =========================================================================
-// 2. LOGIKA HIGHLIGHT OTOMATIS BERDASARKAN JAM (Jangan diubah-ubah)
+// 2. LOGIKA FILTER OTOMATIS BERDASARKAN TANGGAL HARI INI
 // =========================================================================
-function renderMenuHarian() {
+function renderMenuBerdasarkanTanggal() {
     const gridWrapper = document.getElementById('menu-grid-wrapper');
     if (!gridWrapper) return;
 
-    // Ambil jam sistem saat ini (0 - 23)
-    const jamSekarang = new Date().getHours();
-    let waktuAktif = "Pagi";
+    // Ambil tanggal hari ini dalam format lokal (YYYY-MM-DD)
+    const kini = new Date();
+    const tahun = kini.getFullYear();
+    const bulan = String(kini.getMonth() + 1).padStart(2, '0');
+    const hari = String(kini.getDate()).padStart(2, '0');
+    const tanggalHariIni = `${tahun}-${bulan}-${hari}`;
 
-    // Menentukan menu apa yang harus aktif berdasarkan jam
-    if (jamSekarang >= 11 && jamSekarang < 16) {
-        waktuAktif = "Siang";
-    } else if (jamSekarang >= 16 || jamSekarang < 4) {
-        waktuAktif = "Malam";
-    } else {
-        waktuAktif = "Pagi";
-    }
+    // Filter data rekor: Hanya ambil yang tanggalnya sama dengan hari ini
+    const menuHariIni = REKOR_DATA_MENU.filter(item => item.tanggal === tanggalHariIni);
 
     let htmlKonten = '';
 
-    DATA_MENU_HARI_INI.forEach(item => {
-        // Cek apakah menu ini cocok dengan waktu aktif saat ini
-        const isHighlight = item.waktu.toLowerCase() === waktuAktif.toLowerCase();
-        const statusHighlightClass = isHighlight ? 'highlight' : '';
-        const badgeLive = isHighlight ? `<span class="live-badge">🔴 Menu Saat Ini</span>` : '';
+    if (menuHariIni.length > 0) {
+        menuHariIni.forEach(item => {
+            // Konversi format tanggal YYYY-MM-DD menjadi format cetak rapi (DD-MM-YYYY)
+            const pecahTanggal = item.tanggal.split('-');
+            const tanggalCetak = `${pecahTanggal[2]}/${pecahTanggal[1]}/${pecahTanggal[0]}`;
 
-        // Deteksi warna tag dasar
-        let tagClass = 'tag-pagi';
-        if (item.waktu.toLowerCase() === 'siang') tagClass = 'tag-siang';
-        if (item.waktu.toLowerCase() === 'malam') tagClass = 'tag-malam';
-
-        htmlKonten += `
-            <div class="menu-card ${statusHighlightClass}">
-                ${badgeLive}
-                <div class="menu-image-container">
-                    <img src="${item.foto}" alt="${item.nama}" class="menu-img">
-                </div>
-                <div class="menu-body">
-                    <span class="menu-tag ${tagClass}">Makan ${item.waktu}</span>
-                    <h3>${item.nama}</h3>
-                    <p>${item.deskripsi}</p>
-                    
-                    <div class="nutrition-info">
-                        <h4>Nilai Gizi:</h4>
-                        <div class="nutrition-grid">
-                            <div class="nutrition-item">Kalori: <strong>${item.kalori}</strong></div>
-                            <div class="nutrition-item">Protein: <strong>${item.protein}</strong></div>
-                            <div class="nutrition-item">Karbo: <strong>${item.karbohidrat}</strong></div>
-                            <div class="nutrition-item">Lemak: <strong>${item.lemak}</strong></div>
+            htmlKonten += `
+                <div class="menu-card">
+                    <div class="menu-image-container">
+                        <img src="${item.foto}" alt="${item.nama}" class="menu-img">
+                    </div>
+                    <div class="menu-body">
+                        <span class="menu-date-tag">📅 ${tanggalCetak}</span>
+                        <h3>${item.nama}</h3>
+                        <p>${item.deskripsi}</p>
+                        
+                        <div class="nutrition-info">
+                            <h4>Nilai Gizi:</h4>
+                            <div class="nutrition-grid">
+                                <div class="nutrition-item">Kalori: <strong>${item.kalori}</strong></div>
+                                <div class="nutrition-item">Protein: <strong>${item.protein}</strong></div>
+                                <div class="nutrition-item">Karbo: <strong>${item.karbohidrat}</strong></div>
+                                <div class="nutrition-item">Lemak: <strong>${item.lemak}</strong></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+    } else {
+        // Jika belum ada data menu yang diinput untuk tanggal hari ini
+        htmlKonten = `<p style="color: #64748b; font-style: italic;">Menu untuk hari ini belum diperbarui.</p>`;
+    }
 
     gridWrapper.innerHTML = htmlKonten;
 }
 
+// =========================================================================
+// KODE TAMBAHAN: FITUR FILTER RELAWAN & NAVIGASI SMOOTH ANDA
+// =========================================================================
+function filterRelawan(kategori, elementTombol) {
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    elementTombol.classList.add('active');
+
+    const cards = document.querySelectorAll('.volunteer-card');
+    cards.forEach(card => {
+        card.style.animation = 'none';
+        if (kategori === 'all' || card.getAttribute('data-category') === kategori) {
+            card.style.display = 'block';
+            setTimeout(() => { card.style.animation = 'fadeIn 0.5s ease'; }, 10);
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) { current = section.getAttribute('id'); }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href').includes(current)) { a.classList.add('active'); }
+    });
+});
+
+// Pemicu render menu saat halaman dibuka
+document.addEventListener('DOMContentLoaded', renderMenuBerdasarkanTanggal); 
 // =========================================================================
 // 3. FITUR FILTER RELAWAN (Kode Asli Anda)
 // =========================================================================
@@ -119,60 +164,6 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    document.querySelectorAll('.nav-links a').forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href').includes(current)) {
-            a.classList.add('active');
-        }
-    });
-});
-
-// Jalankan fungsi render saat web dimuat
-document.addEventListener('DOMContentLoaded', renderMenuHarian);
-// =========================================================================
-// 3. FITUR FILTER RELAWAN (Kode Asli Anda)
-// =========================================================================
-function filterRelawan(kategori, elementTombol) {
-    // 1. Hapus class 'active' dari semua tombol, lalu tambahkan ke tombol yang diklik
-    const buttons = document.querySelectorAll('.filter-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    elementTombol.classList.add('active');
-
-    // 2. Filter kartu relawan
-    const cards = document.querySelectorAll('.volunteer-card');
-    cards.forEach(card => {
-        // Hapus animasi sebelumnya agar bisa di-trigger ulang
-        card.style.animation = 'none';
-        
-        if (kategori === 'all' || card.getAttribute('data-category') === kategori) {
-            card.style.display = 'block';
-            
-            // Tambahkan timeout kecil untuk memancing reflow (restart animasi)
-            setTimeout(() => {
-                card.style.animation = 'fadeIn 0.5s ease';
-            }, 10);
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-// =========================================================================
-// 4. FITUR NAVIGASI SMOOTH & ACTIVE STATE (Kode Asli Anda)
-// =========================================================================
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        // Deteksi posisi layar dikurangi 100px untuk kalibrasi tinggi navbar
-        if (pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    // Update garis bawah (underline) aktif pada menu navbar
     document.querySelectorAll('.nav-links a').forEach(a => {
         a.classList.remove('active');
         if (a.getAttribute('href').includes(current)) {
