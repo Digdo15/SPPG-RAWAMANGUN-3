@@ -127,15 +127,17 @@ header {
 
 /* --- HERO SECTION --- */
 .hero {
-    background: linear-gradient(135deg, rgba(5, 150, 105, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%), url('https://lh3.googleusercontent.com/d/1YIogI-VJGgH6Qc8Tfc365z298_7jdIUX') center/cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    padding: 0 20px;
-    margin-top: 70px;
+    /* Perubahan ada di ujung baris ini (di dalam url) */
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%), url('https://lh3.googleusercontent.com/d/1YIogI-VJGgH6Qc8Tfc365z298_7jdIUX') center/cover;
+    
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+    margin-top: 70px;
 }
 
 .hero-content {
